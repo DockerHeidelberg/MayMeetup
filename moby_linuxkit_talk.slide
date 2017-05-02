@@ -6,5 +6,50 @@ Docker Heidelberg Organizer
 https://www.meetup.com/Docker-Heidelberg/
 
 
-* Title of slide or section (must have asterisk)
-hello 
+* ARG in Dockerfile
+
+Normal Dockerfile:
+.code old_dockerfile
+
+Dockerfile with ARG:
+.code arg_dockerfile
+
+
+* Build & run dockerfile with ARG
+
+Buildng with args:
+
+  - IMAGE=dockerheidelberg/hello
+  - docker build -t $IMAGE .
+  - docker build --build-arg GO_VERSION=latest -t $IMAGE .
+  - docker build --build-arg GO_VERSION=1.4 -t $IMAGE .
+
+Running it:
+
+  - docker run --rm dockerheidelberg/hello
+
+* What is Moby?
+
+.image moby.png
+A framework to assemble specialized container systems without reinventing the wheel.
+
+- Library of 80+ components
+- Package your own components as containers
+- Reference assemblies deployed on millions of nodes
+- Create your own assemblies or start from an existing one
+
+* What is LinuxKit?
+LinuxKit includes the tooling to allow building custom Linux subsystems that only include exactly the components the runtime platform requires. All system services are containers that can be replaced,
+and everything that is not required can be removed.
+
+.image linuxkit.png 400 600
+
+* Moby YAML config
+
+.image yaml.png 500 1000
+
+
+* Using Moby and Linuxkit
+.image moby_kit.png 400 600
+
+* Demo
